@@ -21,8 +21,8 @@ jobs:
       - name: Add remote
         env: 
           HF: ${{ secrets.HF }}
-        run: echo $HF;git remote add space https://$HF@huggingface.co/spaces/pg2286/image-classification
+        run: git remote add space https://pg2286:$HF@huggingface.co/spaces/pg2286/image-classification
       - name: Push to hub
         env: 
           HF: ${{ secrets.HF }}
-        run: echo $HF;git push --force https://$HF@huggingface.co/spaces/pg2286/image-classification main
+        run: echo $HF;git push --force https://pg2286:$HF@huggingface.co/spaces/pg2286/image-classification main
