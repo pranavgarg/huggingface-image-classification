@@ -1,1 +1,1 @@
-# huggingface-image-classification
+# huggingface-text-summarization
