@@ -20,6 +20,7 @@ jobs:
           fetch-depth: 0 
       - name: Add remote
         env: 
+          ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
           HF: ${{ secrets.HF }}
         run: git remote add space https://pg2286:$HF@huggingface.co/spaces/pg2286/image-classification
       - name: Push to hub
