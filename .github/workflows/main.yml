@@ -29,4 +29,5 @@ jobs:
           HF: ${{ secrets.HF }}
         run: |
           echo $HF
+          git remote set-url origin https://pg2286:$HF@huggingface.co/spaces/pg2286/image-classification
           git push --force https://pg2286:$HF@huggingface.co/spaces/pg2286/image-classification main
