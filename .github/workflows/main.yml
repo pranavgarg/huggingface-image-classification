@@ -27,4 +27,6 @@ jobs:
         env: 
           ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
           HF: ${{ secrets.HF }}
-        run: git push --force https://pg2286:$HF@huggingface.co/spaces/pg2286/image-classification main
+        run: |
+          echo $HF
+          git push --force https://pg2286:$HF@huggingface.co/spaces/pg2286/image-classification main
