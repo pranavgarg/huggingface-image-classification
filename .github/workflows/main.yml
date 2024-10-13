@@ -1,34 +1,20 @@
-# This is a basic workflow to help get started with Actions
-
 name: Sync to Hugging Face hub
-
-# controls when the workflow will be run
 on:
-  push: 
-    branches: [ main ]
-  
-  # Allows you to run this workflow manually from Actions tab
+  push:
+    branches: [main]
+
+  # to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0 
-      - name: Add remote
-        env: 
-          ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
-          HF: ${{ secrets.HF }}
-        run: git remote add space https://pg2286:$HF@huggingface.co/spaces/pg2286/image-classification
+          fetch-depth: 0
+          lfs: true
       - name: Push to hub
-        env: 
-          ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+        env:
           HF_TOKEN: ${{ secrets.HF }}
-        run: |
-          git config --global user.email "pranav.infosys@gmail.com"
-          git config --global user.name "Pranav Garg"
-          git remote set-url origin https://pg2286:$HF_TOKEN@huggingface.co/pg2286/image-classification.git
-          git push origin main
+        run: git push https://pg2286:$HF_TOKEN@huggingface.co/pg2286/image-classification main
