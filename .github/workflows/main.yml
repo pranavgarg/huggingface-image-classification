@@ -25,5 +25,6 @@ jobs:
         run: git remote add space https://pg2286:$HF@huggingface.co/spaces/pg2286/image-classification
       - name: Push to hub
         env: 
+          ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
           HF: ${{ secrets.HF }}
         run: git push --force https://pg2286:$HF@huggingface.co/spaces/pg2286/image-classification main
