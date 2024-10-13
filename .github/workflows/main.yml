@@ -26,8 +26,9 @@ jobs:
       - name: Push to hub
         env: 
           ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
-          HF: ${{ secrets.HF }}
+          HF_TOKEN: ${{ secrets.HF }}
         run: |
-          echo $HF
-          git remote set-url origin https://pg2286:$HF@huggingface.co/spaces/pg2286/image-classification
-          git push --force https://pg2286:$HF@huggingface.co/spaces/pg2286/image-classification main
+          git config --global user.email "pranav.infosys@gmail.com"
+          git config --global user.name "Pranav Garg"
+          git remote set-url origin https://$HF_TOKEN@huggingface.co/pg2286/image-classification.git
+          git push origin main
